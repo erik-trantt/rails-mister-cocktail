@@ -1,0 +1,11 @@
+<h1>Cocktails#index</h1>
+<br>
+<%= link_to  "New cocktail", new_cocktail_path, class: 'btn btn-dark' %>
+<br>
+<br>
+<div class="row row-cols-3 row-cols-xs-1 row-cols-md-2 row-cols-lg-3">
+<% @cocktails.each do |cocktail| %>
+  <%= render "components/cocktail_card", cocktail: cocktail %>
+<% end %>
+<%= render "components/empty_card" %>
+</div>

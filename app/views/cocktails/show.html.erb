@@ -1,0 +1,5 @@
+<h1><%= @cocktail.name %></h1>
+
+<%= render 'doses/index', cocktail: @cocktail %>
+<br>
+<%= link_to  "All cocktails", cocktails_path, class: "btn btn-primary" %>

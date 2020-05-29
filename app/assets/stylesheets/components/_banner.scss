@@ -1,0 +1,16 @@
+header.banner {
+  background-image: url(https://source.unsplash.com/random/800x600);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  max-height: 300px;
+
+  div.btn {
+    bottom: 15px;
+    right: 20px;
+  }
+}

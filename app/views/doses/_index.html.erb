@@ -1,0 +1,21 @@
+<% doses = cocktail.doses %>
+<br>
+<table class="doses">
+  <thead>
+    <th>ID</th>
+    <th>Ingredient</th>
+    <th>Description</th>
+    <th colspan="2">Actions</th>
+  </thead>
+  <tbody>
+    <% doses.each do |dose| %>
+    <tr>
+      <td><%= dose.id %></td>
+      <td><%= dose.description %></td>
+      <td><%= dose.ingredient.name %></td>
+      <td><%= link_to icon('fas', 'edit', class: 'strong'), cocktail_path(cocktail) %></td>
+      <td><%= link_to icon('fas', 'trash', class: 'strong'), cocktail_path(cocktail) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
