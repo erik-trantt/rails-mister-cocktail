@@ -7,16 +7,32 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # print `rails db:seed:replant`
+require "open-uri"
 
-Cocktail.create([{name: "Mojito"}, {name: "Bloody Mary"}, {name: "Sex on the Beach"}, {name: "Magarita"}, {name: "Pina Colada"}])
-Ingredient.create([{name: "Mint"},{name: "Vodka"},{name: "Rum"},{name: "Tequila"},{name: "Orange Juice"},{name: "Tomato Juice"},])
+cocktails = %w(Mojito Bloody\ Mary Sex\ on\ the\ Beach Magarita Pina\ Colada)
+
+cocktails.each do |cocktail|
+  file_name = "cocktail-0#{(1..3).to_a.sample}.jpeg"
+  file = URI.open("app/assets/images/#{file_name}")
+  new_cocktail = Cocktail.new(name: cocktail)
+  new_cocktail.photo.attach(io: file, filename: file_name, content_type: 'image/jpeg')
+  new_cocktail.save!
+end
+
+ingredients = %w(Mint Vodka Rum Tequila Orange\ Juice Tomato\ Juice)
+ingredients.each do |ingredient|
+  Ingredient.create(name: ingredient)
+end
+
+# Cocktail.create([{name: "Mojito"}, {name: "Bloody Mary"}, {name: "Sex on the Beach"}, {name: "Magarita"}, {name: "Pina Colada"}])
+# Ingredient.create([{name: "Mint"},{name: "Vodka"},{name: "Rum"},{name: "Tequila"},{name: "Orange Juice"},{name: "Tomato Juice"},])
 
 10.times do
   dose = Dose.new(description: Faker::Food.measurement)
   counter = 0
   loop do
-    dose.cocktail = Cocktail.find(rand(1..5))
-    dose.ingredient = Ingredient.find(rand(1..5))
+    dose.cocktail = Cocktail.find(rand(Cocktail.first.id..Cocktail.last.id))
+    dose.ingredient = Ingredient.find(rand(Ingredient.first.id..Ingredient.last.id))
     break if dose.save || counter > 3
 
     counter += 1

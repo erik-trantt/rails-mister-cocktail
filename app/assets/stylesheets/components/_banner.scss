@@ -13,4 +13,11 @@ header.banner {
     bottom: 15px;
     right: 20px;
   }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 0;
+  }
 }
