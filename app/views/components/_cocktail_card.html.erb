@@ -1,6 +1,10 @@
 <div class="col col-12 col-md-6 col-lg-4 mb-4">
   <div class="card h-100">
+    <% if cocktail.photo.attachment.nil? %>
+    <%= image_tag "https://via.placeholder.com/400x300", class: "card-img-top", height: 300, width: 400, crop: :fill  %>
+    <% else %>
     <%= cl_image_tag cocktail.photo.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= cocktail.name %></h5>
       <h6 class="card-subtitle mb-2 text-muted">Ingredients</h6>
