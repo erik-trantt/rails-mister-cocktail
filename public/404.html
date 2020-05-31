@@ -51,17 +51,30 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  .bg {
+    background: url(cocktail-shaker.svg);
+    background-size: 100% auto;
+  }
+  img {
+    max-width: 100px;
+    display: inline;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+    <div class="">
+      <img src="cocktail-shaker.svg" alt="cocktail sign">
+      <h1>Oops! You may have lost wandering off the bar.</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p><a href="/">No worry. Follow this to get back.</a></p>
   </div>
+  <footer>
+    <div class="credits">
+      <div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,7 @@
+<% if defined?(type).nil? %>
+  <%= link_to "Make your cocktail", new_cocktail_path, class: "btn btn-light w-100" %>
+<% elsif type == "banner" %>
+  <div class="btn position-absolute">
+      <%= link_to "Make your cocktail", new_cocktail_path, class: "btn btn-light" %>
+  </div>
+<% end %>
